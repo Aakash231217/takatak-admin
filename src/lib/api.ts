@@ -137,6 +137,25 @@ class ApiClient {
   getTopHosts() { return this.get<any>('/admin/gifts/analytics/hosts/leaderboard'); }
   getGiftTrends() { return this.get<any>('/admin/gifts/analytics/trends'); }
 
+  // Levels (Wealth & Charm) — admin controlled
+  getLevelTiers(type?: string) { return this.get<any>(`/admin/levels/tiers${type ? `?type=${type}` : ''}`); }
+  createLevelTier(data: any) { return this.post<any>('/admin/levels/tiers', data); }
+  updateLevelTier(id: string, data: any) { return this.patch<any>(`/admin/levels/tiers/${id}`, data); }
+  deleteLevelTier(id: string) { return this.delete<any>(`/admin/levels/tiers/${id}`); }
+
+  getLevelRewards(type?: string, rewardType?: string) {
+    const qs = [type ? `type=${type}` : '', rewardType ? `rewardType=${rewardType}` : ''].filter(Boolean).join('&');
+    return this.get<any>(`/admin/levels/rewards${qs ? `?${qs}` : ''}`);
+  }
+  createLevelReward(data: any) { return this.post<any>('/admin/levels/rewards', data); }
+  updateLevelReward(id: string, data: any) { return this.patch<any>(`/admin/levels/rewards/${id}`, data); }
+  deleteLevelReward(id: string) { return this.delete<any>(`/admin/levels/rewards/${id}`); }
+
+  getLevelTasks(type?: string) { return this.get<any>(`/admin/levels/tasks${type ? `?type=${type}` : ''}`); }
+  createLevelTask(data: any) { return this.post<any>('/admin/levels/tasks', data); }
+  updateLevelTask(id: string, data: any) { return this.patch<any>(`/admin/levels/tasks/${id}`, data); }
+  deleteLevelTask(id: string) { return this.delete<any>(`/admin/levels/tasks/${id}`); }
+
   // Agency
   getAgency(id: string) { return this.get<any>(`/agency/${id}`); }
   banAgency(id: string) { return this.post<any>(`/agency/${id}/ban`); }

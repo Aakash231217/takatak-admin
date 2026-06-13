@@ -10,6 +10,7 @@ const nav = [
   { href: '/wallets', label: 'Wallets & Transactions', icon: '💰' },
   { href: '/withdrawals', label: 'Withdrawals', icon: '🏧' },
   { href: '/gifts', label: 'Gifts', icon: '🎁' },
+  { href: '/levels', label: 'Levels', icon: '🏆' },
   { href: '/agencies', label: 'Agencies', icon: '🏢' },
   { href: '/hosts', label: 'Hosts', icon: '🎤' },
   { href: '/fraud', label: 'Fraud Detection', icon: '🚨' },
